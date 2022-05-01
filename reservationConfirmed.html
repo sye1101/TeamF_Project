@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>레스토랑 예약 정보 확인</title>
+
+  <link rel="stylesheet" href="./retaurant.css">
+  <link rel="stylesheet" href="./reservationConfirmed.css">
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 20px;
+    }
+
+    table {
+      border-spacing: 5px;
+    }
+
+    th {
+      width: 150px;
+      background-color: lightgrey;
+    }
+
+    td {
+      width: 80%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page">
+    <header>
+      <div id="logo">
+        <a href="#" onclick="location.href='restaurant.html'">
+          <img src="./imgs/logo.png" width="140px" alt="Logo">
+        </a>
+      </div>
+      <div id="top_menu">
+        <a href="#">LOGIN</a> |
+        <a href="#">JOIN</a> |
+        <a href="#">MANAGER</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="location.href='reservation.html'">RESERVATION</a></li>
+          <li><a href="#">INQUIRY</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="container">
+      <h3> 예약 정보 확인 </h3>
+      <hr><br><br>
+      <table>
+        <tr>
+          <th>예약자</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>연락처</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>인원</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>예약날짜</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>예약시간</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>테이블</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>추가 요구사항</th>
+          <td> </td>
+        </tr>
+      </table><br>
+      <div id="checkButton">
+        <button type="submit" onClick="location.href='reservationCompleted.html'">예약하기</button>
+      </div><br><br>
+    </div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+#checkButton button {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 8px;
+}
+
+#checkButton button:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+#page {
+  width: 820px;
+  margin: 0px auto;
+}
