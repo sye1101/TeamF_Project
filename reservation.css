@@ -1,0 +1,103 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#content {
+  font-size: 20px;
+  padding: 10px;
+}
+
+#container {
+  font-size: 20px;
+  padding: 10px;
+}
+
+#reserveButton button {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 8px;
+}
+
+#reserveButton button:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+.timeButtonClass {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.timeButtonClass:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+.clicked {
+  background-color: salmon;
+}
+
+#Div {
+  position: absolute;
+  visibility: hidden;
+  font-size: 13px;
+}
+
+#testt {
+  width: 50px;
+  cursor: pointer;
+}
+
+#selectButton {
+  border: 1px solid grey;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+#checkboxStyle {
+  height: auto;
+  overflow: auto;
+  width: auto;
+  border: 1px solid #000;
+  list-style-type: none;
+  overflow-x: hidden;
+  display: block;
+  color: black;
+  background-color: white;
+}
+
+#closeButton {
+  padding-top: 2px;
+  text-align: right
+}
+
+#checkboxButton {
+  border: 1px solid grey;
+  background-color: white;
+  width: 50px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+#page {
+  width: 820px;
+  margin: 0px auto;
+}

@@ -1,0 +1,60 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: auto;
+  height: 180px;
+  position: relative;
+}
+
+#logo {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#top_menu {
+  position: absolute;
+  top: 30px;
+  right: 5px;
+  color: black;
+  font-size: 12px;
+}
+
+#top_menu a {
+  color: black;
+}
+
+nav {
+  position: absolute;
+  bottom: 30px;
+  font-size: 16px;
+}
+
+nav li {
+  display: inline;
+  margin-left: 210px;
+}
+
+nav li a {
+  color: black;
+}
+
+#main li {
+  display: inline;
+  margin-left: 50;
+}
+
+#page {
+  width: 820px;
+  margin: 0px auto;
+}
