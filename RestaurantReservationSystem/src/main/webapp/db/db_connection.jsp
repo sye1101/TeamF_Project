@@ -8,8 +8,8 @@
 <title>Database SQL</title>
 </head>
 <body>
-<!-- µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á -->
+<!-- ÂµÂ¥Ã€ÃŒÃ…ÃÂºÂ£Ã€ÃŒÂ½Âº Â¿Â¬Â°Ã¡ -->
 	<sql:setDataSource var = "dataSource" url = "jdbc:mysql://localhost:3306/RestaurantDB"
-		driver = "com.mysql.cj.jdbc.Driver" user = "root" password = "skfvkfl2004!" />
+		driver = "com.mysql.cj.jdbc.Driver" user = "root" password = "ë¹„ë°€ë²ˆí˜¸" />
 </body>
 </html>
