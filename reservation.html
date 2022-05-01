@@ -70,7 +70,7 @@
               var time = document.createTextNode(i + ' : 00');
               timeButton.appendChild(time);
               timeButton.className = 'timeButtonClass';
-              timeButton.id = i + ' : 00';
+              timeButton.value = i + " : 00";
               timeButton.type = 'submit';
               document.getElementById("reservationTimeId").appendChild(timeButton);
               timeButton.onclick = change;
