@@ -64,74 +64,32 @@
         </li><br>
         <li id="reservationTimeId">
           <label for="reservationTime"> 예약시간 </label><br>
-          <script>
-            for (var i = 10; i < 23; i++) {
-              var timeButton = document.createElement('button');
-              var time = document.createTextNode(i + ' : 00');
-              timeButton.appendChild(time);
-              timeButton.className = 'timeButtonClass';
-              timeButton.value = i + " : 00";
-              timeButton.type = 'submit';
-              document.getElementById("reservationTimeId").appendChild(timeButton);
-              timeButton.onclick = change;
-            }
-
-            function change() {
-              var changeButton = document.getElementsByClassName("timeButtonClass");
-
-              function handleClick(event) {
-                if (event.target.classList[0] === "clicked") {
-                  event.target.classList.remove("clicked");
-                } else {
-                  for (var i = 0; i < changeButton.length; i++) {
-                    changeButton[i].classList.remove("clicked");
-                  }
-                  event.target.classList.add("clicked");
-                }
+          <select id="reservationTime">
+            <script>
+              for (var i = 10; i <= 23; i++) {
+                var reservationTimeOption = document.createElement('option');
+                var time = document.createTextNode(i + ' : 00');
+                reservationTimeOption.appendChild(time);
+                document.getElementById("reservationTime").appendChild(reservationTimeOption);
               }
-
-              function init() {
-                for (var i = 0; i < changeButton.length; i++) {
-                  changeButton[i].addEventListener("click", handleClick);
-                }
-              }
-
-              init();
-            }
-          </script>
+            </script>
+          </select>
         </li><br>
         <li>
           <label for="selectTable"> 테이블 선택 </label><br>
-          <input type="text" id="testt" class="w90p" align="center" onClick="multiSelect('OPEN')" value="" readonly />
-          <input type="button" id="selectButton" value="v" onclick="multiSelect('OPEN')" />
-          <div id="Div" class="multi">
-            <ul>
-              <c:forEach var="list" items="${codeList }" varStatus="loop">
-                <li id="checkboxStyle">
-                  <input type="checkbox" name="multicheck" nm="${list.codeNm}" value="${list.codeCd}">${list.codeNm}
-                </li>
-              </c:forEach>
-            </ul>
-            <div id="closeButton">
-              <input type="button" id="checkboxButton" value="select" onClick="multiSelect('CLOSE')">
-            </div>
-          </div>
+          <ul>
+            <li id="selectTableId">
           <script>
-            function multiSelect(value) {
-              if (value == "OPEN") {
-                Div.style.visibility = "visible";
-              } else {
-                Div.style.visibility = "hidden";
-                var chkArray = new Array();
-                $('input:checkbox[name=multicheck]:checked').each(function() { // 체크된 체크박스의 value 값을 가지고 온다.
-                  chkArray.push(this.getAttribute('nm'));
-                });
-                if (chkArray.length > 0) {
-                  $('#testt').val(chkArray)
-                }
-              }
+            for (var i = 1; i <= 6; i++) {
+              var selectTableCheckbox = document.createElement("INPUT");
+              selectTableCheckbox.setAttribute("type", "checkbox");
+              selectTableCheckbox.setAttribute("value", i + "번");
+              document.getElementById("selectTableId").appendChild(selectTableCheckbox);
+              document.write(i + '번&nbsp;&nbsp;&nbsp;&nbsp;')
             }
           </script>
+        </li>
+          </ul>
         </li>
       </ul><br>
       <h3>예약자 정보</h3>
