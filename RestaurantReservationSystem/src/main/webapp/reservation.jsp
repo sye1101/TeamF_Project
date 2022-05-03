@@ -1,41 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@page import="java.io.PrintWriter"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ include file = "./db/db_connection.jsp" %>
+<%@ page import = "dao.tableDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="#">
-  <title>¿¹¾àÇÏ±â</title>
+  <title>ì˜ˆì•½í•˜ê¸°</title>
   <link rel="stylesheet" href="./resources/css/retaurant.css">
   <link rel="stylesheet" href="./resources/css/reservation.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap/min.css">
 </head>
 
 <body>
+  <%
+	PrintWriter writer = response.getWriter();
+	if (session.getAttribute("sessionId") == null) {
+		writer.println("<script>");
+		writer.println("alert('íšŒì›ë§Œ ë ˆìŠ¤í† ë‘ ì˜ˆì•½ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤. ì˜ˆì•½í•˜ì‹œë ¤ë©´ ë¡œê·¸ì¸í•˜ì„¸ìš”.')");
+		writer.println("location.href='./restaurant.jsp'");
+		writer.println("</script>");
+	} 
+	%>
+<form method="get" action="./reservationConfirm.jsp">
   <div id="page">
-    <header>
-      <div id="logo">
-        <a href="#" onclick="location.href='./restaurant.jsp'">
-          <img src="./resources/imgs/logo.png" width="50px" alt="Logo">
-        </a>
-      </div>
-      <div id="top_menu">
-        <a href="#">LOGIN</a> |
-        <a href="#">JOIN</a> |
-        <a href="#">MANAGER</a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#" onclick="location.href='./reservation.jsp'">RESERVATION</a></li>
-          <li><a href="#">INQUIRY</a></li>
-        </ul>
-      </nav>
-    </header>
+  <%@ include file = "./header.jsp" %>
     <article id="content">
-      <h3>Å×ÀÌºí ¹èÄ¡µµ</h3>
+      <h3>í…Œì´ë¸” ë°°ì¹˜ë„</h3>
       <hr>
       <section id="table_six">
         <img src="./resources/imgs/table_six.png" width="10%" alt="table img">
@@ -45,19 +39,23 @@
       	<img src="./resources/imgs/table_four.png" width="10%" alt="table img">
         <img src="./resources/imgs/table_four.png" width="10%" alt="table img">
       </section>
+       <section id="table_two">
+      	<img src="./resources/imgs/table_two.png" width="7%" alt="table img">
+        <img src="./resources/imgs/table_two.png" width="7%" alt="table img">
+      </section>
 
     </article>
     <div id="container">
-      <h3>³¯Â¥&amp;½Ã°£&amp;ÀÎ¿ø ¼±ÅÃ</h3>
+      <h3>ë‚ ì§œ&amp;ì‹œê°„&amp;ì¸ì› ì„ íƒ</h3>
       <hr><br>
       <ul>
         <li>
-          <label for="cover"> ÀÎ¿ø </label><br>
-          <select id="cover">
+          <label for="cover"> ì¸ì› </label><br>
+          <select id="cover" name="cover">
             <script>
               for (var i = 1; i <= 10; i++) {
                 var coverOption = document.createElement('option');
-                var cover = document.createTextNode(i + '¸í');
+                var cover = document.createTextNode(i + 'ëª…');
                 coverOption.appendChild(cover);
                 document.getElementById("cover").appendChild(coverOption);
               }
@@ -65,104 +63,65 @@
           </select>
         </li><br>
         <li>
-          <label for="reservationDate"> ¿¹¾à³¯Â¥ </label><br>
-          <input type="date" id="dt">
+          <label for="reservationDate"> ì˜ˆì•½ë‚ ì§œ </label><br>
+          <input type="date" id="dt" name="date">
           <script>
             document.getElementById('dt').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
           </script>
         </li><br>
-        <li id="reservationTimeId">
-          <label for="reservationTime"> ¿¹¾à½Ã°£ </label><br>
-          <script>
-            for (var i = 10; i < 23; i++) {
-              var timeButton = document.createElement('button');
-              var time = document.createTextNode(i + ' : 00');
-              timeButton.appendChild(time);
-              timeButton.className = 'timeButtonClass';
-              timeButton.type = 'submit';
-              document.getElementById("reservationTimeId").appendChild(timeButton);
-              timeButton.onclick = change;
-            }
-
-            function change() {
-              var changeButton = document.getElementsByClassName("timeButtonClass");
-
-              function handleClick(event) {
-                if (event.target.classList[0] === "clicked") {
-                  event.target.classList.remove("clicked");
-                } else {
-                  for (var i = 0; i < changeButton.length; i++) {
-                    changeButton[i].classList.remove("clicked");
-                  }
-                  event.target.classList.add("clicked");
-                }
+      <li id="reservationTimeId">
+          <label for="reservationTime"> ì˜ˆì•½ì‹œê°„ </label><br>
+          <select id="reservationTime" name = "reservationTime">
+            <script>
+              for (var i = 10; i <= 23; i++) {
+                var reservationTimeOption = document.createElement('option');
+                var time = document.createTextNode(i + ' : 00');
+                reservationTimeOption.appendChild(time);
+                document.getElementById("reservationTime").appendChild(reservationTimeOption);
               }
-
-              function init() {
-                for (var i = 0; i < changeButton.length; i++) {
-                  changeButton[i].addEventListener("click", handleClick);
-                }
-              }
-
-              init();
-            }
-          </script>
+            </script> 
+          </select>
         </li><br>
         <li>
-          <label for="selectTable"> Å×ÀÌºí ¼±ÅÃ </label><br>
-          <input type="text" id="testt" class="w90p" align="center" onClick="multiSelect('OPEN')" value="" readonly />
-          <input type="button" id="selectButton" value="v" onclick="multiSelect('OPEN')" />
-          <div id="Div" class="multi">
-            <ul>
-              <c:forEach var="list" items="${codeList }" varStatus="loop">
-                <li id="checkboxStyle">
-                  <input type="checkbox" name="multicheck" nm="${list.codeNm}" value="${list.codeCd}">${list.codeNm}
-                </li>
-              </c:forEach>
-            </ul>
-            <div id="closeButton">
-              <input type="button" id="checkboxButton" value="select" onClick="multiSelect('CLOSE')">
-            </div>
-          </div>
+         <label for="selectTable"> í…Œì´ë¸” ì„ íƒ </label><br>
+          <ul>
+            <li id="selectTableId">
           <script>
-            function multiSelect(value) {
-              if (value == "OPEN") {
-                Div.style.visibility = "visible";
-              } else {
-                Div.style.visibility = "hidden";
-                var chkArray = new Array();
-                $('input:checkbox[name=multicheck]:checked').each(function() { // Ã¼Å©µÈ Ã¼Å©¹Ú½ºÀÇ value °ªÀ» °¡Áö°í ¿Â´Ù.
-                  chkArray.push(this.getAttribute('nm'));
-                });
-                if (chkArray.length > 0) {
-                  $('#testt').val(chkArray)
-                }
-              }
+            for (var i = 1; i <= 6; i++) {
+              var selectTableCheckbox = document.createElement("INPUT");
+              selectTableCheckbox.setAttribute("type", "checkbox");
+              selectTableCheckbox.setAttribute("value", i + "ë²ˆ");
+              selectTableCheckbox.name = "table_num";
+              document.getElementById("selectTableId").appendChild(selectTableCheckbox);
+              document.write(i + 'ë²ˆ&nbsp;&nbsp;&nbsp;&nbsp;')
             }
           </script>
         </li>
+          </ul>
+        </li>
       </ul><br>
-      <h3>¿¹¾àÀÚ Á¤º¸</h3>
+      <h3>ì˜ˆì•½ì ì •ë³´</h3>
       <hr><br>
       <ul>
         <li>
-          <label for="name"> ¿¹¾àÀÚ </label><br>
-          <input type="text" id="name">
+          <label for="name"> ì˜ˆì•½ì </label><br>
+          <input type="text" id="name" name="name">
         </li>
         <li><br>
-          <label for="phonenumber"> ¿¬¶ôÃ³ </label><br>
-          <input type="text" id="phonenumber">
+          <label for="phonenumber"> ì—°ë½ì²˜ </label><br>
+          <input type="text" id="phonenumber" name="phonenumber">
         </li>
         <li><br>
-          <label for="requirements"> Ãß°¡ ¿ä±¸ »çÇ× </label><br>
+          <label for="requirements"> ì¶”ê°€ ìš”êµ¬ ì‚¬í•­ </label><br>
           <textarea name="requirements" rows="4" cols="40"></textarea>
         </li>
       </ul><br>
       <div id="reserveButton">
-        <button type="submit">¿¹¾àÇÏ±â</button>
+        <button type="submit">ì˜ˆì•½í•˜ê¸°</button>
       </div><br><br>
-    </div>
-  </div>
+   	 </div>
+  	</div>
+  </form>
 </body>
 
 </html>
