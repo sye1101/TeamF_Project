@@ -8,6 +8,6 @@
 </head>
 <body>
 	<sql:setDataSource var = "dataSource" url = "jdbc:mysql://localhost:3306/RestaurantDB?autoReconnect=true"
-		driver = "com.mysql.jdbc.Driver" user = "root" password = "skfvkfl2004!" />
+			driver = "com.mysql.jdbc.Driver" user = "root" password = "비밀번호" />
 </body>
 </html>
