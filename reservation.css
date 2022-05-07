@@ -11,13 +11,12 @@ a {
   text-decoration: none;
 }
 
-#content {
+h3 {
   font-size: 20px;
-  padding: 10px;
 }
 
-#container {
-  font-size: 20px;
+#content {
+  margin-top: 40px;
   padding: 10px;
 }
 
@@ -39,7 +38,8 @@ a {
   background-color: white;
 }
 
-#page {
+#inpage {
   width: 820px;
   margin: 0px auto;
+  color: black;
 }

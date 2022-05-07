@@ -17,3 +17,14 @@ img {
   display : block;
   margin : auto;
 }
+
+#container{
+  width: 820px;
+  margin: 0px auto;
+  color: black;
+}
+
+h3{
+    margin-top: 40px;
+    font-size: 20px;
+}

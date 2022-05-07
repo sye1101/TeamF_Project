@@ -1,16 +1,29 @@
-#checkButton button {
+#inquiry {
+  margin: auto;
+  display: block;
   border: 1px solid white;
   background-color: black;
   color: white;
   padding: 8px;
 }
 
-#checkButton button:hover {
+#inquiry :hover {
   border: 1px solid black;
   color: black;
   background-color: white;
 }
-
+input {
+  width: 40%;
+  height: 60px;
+}
+.a{
+  margin-top: 50px;
+  height : 200px;
+ text-align : center;
+}
+#inquiry{
+  margin-top: 50px;
+}
 #container {
   width: 820px;
   margin: 0px auto;

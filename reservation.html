@@ -4,113 +4,130 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" href="#">
   <title>예약하기</title>
-  <link rel="stylesheet" href="./retaurant.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./restaurant.css">
   <link rel="stylesheet" href="./reservation.css">
 </head>
 
 <body>
   <div id="page">
     <header>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Story</a>
+          <a href="#">Menu</a>
+          <a href="#" onclick="location.href='reservation.html'">Reservation</a>
+          <a href="#" onclick="location.href='inquiry.html'">Inquiry</a>
+        </div>
+      </div>
+      <span id="menuBar" onclick="openNav()">&#9776;</span>
+      <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+      </script>
       <div id="logo">
         <a href="#" onclick="location.href='restaurant.html'">
-          <img src="./imgs/logo.png" width="140px" alt="Logo">
+          <h1>teamF's restaurant</h1>
         </a>
       </div>
       <div id="top_menu">
-        <a href="#">LOGIN</a> |
-        <a href="#">JOIN</a> |
-        <a href="#">MANAGER</a>
+        <a href="#">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">관리자</a>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#" onclick="location.href='reservation.html'">RESERVATION</a></li>
-          <li><a href="#">INQUIRY</a></li>
-        </ul>
-      </nav>
     </header>
-    <article id="content">
-      <h3>테이블 배치도</h3>
-      <hr>
-      <section id="table">
-        <img src="./imgs/table.png" width="100%" alt="table img">
-      </section>
+    <div id="inpage">
+      <article id="content">
+        <h3>테이블 배치도</h3>
+        <hr>
+        <section id="table">
+          <img src="./imgs/table.png" width="100%" alt="table img">
+        </section>
 
-    </article>
-    <div id="container">
-      <h3>날짜&amp;시간&amp;인원 선택</h3>
-      <hr><br>
-      <ul>
-        <li>
-          <label for="cover"> 인원 </label><br>
-          <select id="cover">
+      </article>
+      <div id="container">
+        <h3>날짜&amp;시간&amp;인원 선택</h3>
+        <hr><br>
+        <ul>
+          <li>
+            <label for="cover"> 인원 </label><br>
+            <select id="cover">
+              <script>
+                for (var i = 1; i <= 10; i++) {
+                  var coverOption = document.createElement('option');
+                  var cover = document.createTextNode(i + '명');
+                  coverOption.appendChild(cover);
+                  document.getElementById("cover").appendChild(coverOption);
+                }
+              </script>
+            </select>
+          </li><br>
+          <li>
+            <label for="reservationDate"> 예약날짜 </label><br>
+            <input type="date" id="dt">
             <script>
-              for (var i = 1; i <= 10; i++) {
-                var coverOption = document.createElement('option');
-                var cover = document.createTextNode(i + '명');
-                coverOption.appendChild(cover);
-                document.getElementById("cover").appendChild(coverOption);
-              }
+              document.getElementById('dt').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
             </script>
-          </select>
-        </li><br>
-        <li>
-          <label for="reservationDate"> 예약날짜 </label><br>
-          <input type="date" id="dt">
-          <script>
-            document.getElementById('dt').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
-          </script>
-        </li><br>
-        <li id="reservationTimeId">
-          <label for="reservationTime"> 예약시간 </label><br>
-          <select id="reservationTime">
-            <script>
-              for (var i = 10; i <= 23; i++) {
-                var reservationTimeOption = document.createElement('option');
-                var time = document.createTextNode(i + ' : 00');
-                reservationTimeOption.appendChild(time);
-                document.getElementById("reservationTime").appendChild(reservationTimeOption);
-              }
-            </script>
-          </select>
-        </li><br>
-        <li>
-          <label for="selectTable"> 테이블 선택 </label><br>
-          <ul>
-            <li id="selectTableId">
-          <script>
-            for (var i = 1; i <= 6; i++) {
-              var selectTableCheckbox = document.createElement("INPUT");
-              selectTableCheckbox.setAttribute("type", "checkbox");
-              selectTableCheckbox.setAttribute("value", i + "번");
-              document.getElementById("selectTableId").appendChild(selectTableCheckbox);
-              document.write(i + '번&nbsp;&nbsp;&nbsp;&nbsp;')
-            }
-          </script>
-        </li>
-          </ul>
-        </li>
-      </ul><br>
-      <h3>예약자 정보</h3>
-      <hr><br>
-      <ul>
-        <li>
-          <label for="name"> 예약자 </label><br>
-          <input type="text" id="name">
-        </li>
-        <li><br>
-          <label for="phonenumber"> 연락처 </label><br>
-          <input type="text" id="phonenumber">
-        </li>
-        <li><br>
-          <label for="requirements"> 추가 요구사항 </label><br>
-          <textarea name="requirements" rows="4" cols="40"></textarea>
-        </li>
-      </ul><br>
-      <div id="reserveButton">
-        <button type="submit" onClick="location.href='reservationConfirmed.html'">예약하기</button>
-      </div><br><br>
+          </li><br>
+          <li id="reservationTimeId">
+            <label for="reservationTime"> 예약시간 </label><br>
+            <select id="reservationTime">
+              <script>
+                for (var i = 10; i <= 23; i++) {
+                  var reservationTimeOption = document.createElement('option');
+                  var time = document.createTextNode(i + ' : 00');
+                  reservationTimeOption.appendChild(time);
+                  document.getElementById("reservationTime").appendChild(reservationTimeOption);
+                }
+              </script>
+            </select>
+          </li><br>
+          <li>
+            <label for="selectTable"> 테이블 선택 </label><br>
+            <ul>
+              <li id="selectTableId">
+                <script>
+                  for (var i = 1; i <= 6; i++) {
+                    var selectTableCheckbox = document.createElement("INPUT");
+                    selectTableCheckbox.setAttribute("type", "checkbox");
+                    selectTableCheckbox.setAttribute("value", i + "번");
+                    document.getElementById("selectTableId").appendChild(selectTableCheckbox);
+                    document.write(i + '번&nbsp;&nbsp;&nbsp;&nbsp;')
+                  }
+                </script>
+              </li>
+            </ul>
+          </li>
+        </ul><br>
+        <h3>예약자 정보</h3>
+        <hr><br>
+        <ul>
+          <li>
+            <label for="name"> 예약자 </label><br>
+            <input type="text" id="name">
+          </li>
+          <li><br>
+            <label for="phonenumber"> 연락처 </label><br>
+            <input type="text" id="phonenumber">
+          </li>
+          <li><br>
+            <label for="requirements"> 추가 요구사항 </label><br>
+            <textarea name="requirements" rows="4" cols="40"></textarea>
+          </li>
+        </ul><br>
+        <div id="reserveButton">
+          <button type="submit" onClick="location.href='reservationConfirmed.html'">예약하기</button>
+        </div><br><br>
+      </div>
     </div>
   </div>
 </body>

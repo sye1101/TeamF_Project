@@ -4,13 +4,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>레스토랑 예약 완료</title>
+  <title>레스토랑 예약 조회</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./restaurant.css">
-  <link rel="stylesheet" href="./reservationCompleted.css">
+  <link rel="stylesheet" href="./reservationConfirmed.css">
+  <link rel="stylesheet" href="./inquiry.css">
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 20px;
+    }
+
+    table {
+      border-spacing: 5px;
+    }
+
+    th {
+      width: 150px;
+      background-color: lightgrey;
+    }
+
+    td {
+      width: 80%;
+    }
+  </style>
 </head>
 
 <body>
@@ -47,16 +73,40 @@
       </div>
     </header>
     <div id="container">
-      <h3> 예약 완료 </h3>
+      <h3> 예약 조회 </h3>
       <hr><br><br>
-      <article id="comleteImg">
-        <section id="banner">
-          <img src="./imgs/thankyou.png" width="45%" alt="completed img">
-        </section>
-
-      </article><br><br>
-      <div id="inquiryButton">
-        <button type="submit" onClick="location.href='inquiry.html'">조회하기</button>
+      <table>
+        <tr>
+          <th>예약자</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>연락처</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>인원</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>예약날짜</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>예약시간</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>테이블</th>
+          <td> </td>
+        </tr>
+        <tr>
+          <th>추가 요구사항</th>
+          <td> </td>
+        </tr>
+      </table><br>
+      <div id="cancelButton">
+        <button type="button" onclick="location.href='reservationCancel.html'">취소하기</button>
       </div><br><br>
     </div>
 

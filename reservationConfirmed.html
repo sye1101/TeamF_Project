@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>레스토랑 예약 정보 확인</title>
 
-  <link rel="stylesheet" href="./retaurant.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./restaurant.css">
   <link rel="stylesheet" href="./reservationConfirmed.css">
   <style>
     table,
@@ -38,22 +41,35 @@
 <body>
   <div id="page">
     <header>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Story</a>
+          <a href="#">Menu</a>
+          <a href="#" onclick="location.href='reservation.html'">Reservation</a>
+          <a href="#" onclick="location.href='inquiry.html'">Inquiry</a>
+        </div>
+      </div>
+      <span id="menuBar" onclick="openNav()">&#9776;</span>
+      <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+      </script>
       <div id="logo">
         <a href="#" onclick="location.href='restaurant.html'">
-          <img src="./imgs/logo.png" width="140px" alt="Logo">
+          <h1>teamF's restaurant</h1>
         </a>
       </div>
       <div id="top_menu">
-        <a href="#">LOGIN</a> |
-        <a href="#">JOIN</a> |
-        <a href="#">MANAGER</a>
+        <a href="#">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">회원가입</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">관리자</a>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#" onclick="location.href='reservation.html'">RESERVATION</a></li>
-          <li><a href="#">INQUIRY</a></li>
-        </ul>
-      </nav>
     </header>
     <div id="container">
       <h3> 예약 정보 확인 </h3>
