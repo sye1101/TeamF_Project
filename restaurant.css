@@ -84,9 +84,10 @@ header {
 }
 
 #top_menu {
+  word-spacing:15px;
   position: absolute;
   top: 20px;
-  right: 100px;
+  right: 5%;
   font-size: 13px;
 }
 
