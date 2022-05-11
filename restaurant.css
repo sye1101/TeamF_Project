@@ -71,7 +71,7 @@ a {
 
 header {
   width: auto;
-  height: auto;
+  height: 60px;
   position: relative;
   color: black;
 }

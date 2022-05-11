@@ -9,34 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./restaurant.css">
-  <link rel="stylesheet" href="./reservationConfirmed.css">
   <link rel="stylesheet" href="./inquiry.css">
-  <style>
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 20px;
-    }
-
-    table {
-      border-spacing: 5px;
-    }
-
-    th {
-      width: 150px;
-      background-color: lightgrey;
-    }
-
-    td {
-      width: 80%;
-    }
-  </style>
 </head>
 
 <body>
@@ -72,10 +47,17 @@
         <a href="#">관리자</a>
       </div>
     </header>
+    <div class="lb-wrap">
+      <div class="lb-text">
+        <h2>Reservation inquiry: Reservation</h2>
+      </div>
+      <div class="img"></div>
+    </div>
     <div id="container">
-      <h3> 예약 조회 </h3>
-      <hr><br><br>
-      <table>
+      <br><br><br><br>
+      <h3>레스토랑 예약 조회</h3><br>
+      <p>TeamF's Restaurant를 이용해 주셔서 감사합니다.<br>세부적인 예약 내역을 확인하실 수 있습니다.</p><br><br>
+      <table id="inquiryTable">
         <tr>
           <th>예약자</th>
           <td> </td>
@@ -104,11 +86,14 @@
           <th>추가 요구사항</th>
           <td> </td>
         </tr>
-      </table><br>
+      </table><br><br><br>
+      <div id="allInquiryButton">
+        <button type="button" onclick="location.href='AllInquiry.html'">전체예약조회</button>
+      </div>
       <div id="cancelButton">
-        <button type="button" onclick="location.href='reservationCancel.html'">취소하기</button>
-      </div><br><br>
-    </div>
+        <button type="button" onclick="location.href='reservationCancel.html'">예약취소</button>
+      </div>
+    </div><br><br><br><br><br><br><br><br><br><br><br>
 
   </div>
 </body>

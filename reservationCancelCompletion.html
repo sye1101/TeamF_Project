@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./restaurant.css">
-  <link rel="stylesheet" href="./reservationCompleted.css">
+  <link rel="stylesheet" href="./reservationCancelCompletion.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
           <a href="#">Story</a>
           <a href="#">Menu</a>
           <a href="#" onclick="location.href='reservation.html'">Reservation</a>
-          <a href="#" onclick="location.href='inquiry.html'">Inquiry</a>
+          <a href="#" onclick="location.href='nonLonginInquiry.html'">Inquiry</a>
         </div>
       </div>
       <span id="menuBar" onclick="openNav()">&#9776;</span>
@@ -46,18 +47,20 @@
         <a href="#">관리자</a>
       </div>
     </header>
+  </div>
+  <div class="lb-wrap">
+    <div class="lb-text">
+      <h2>Reservation: Cancellation complete</h2>
+    </div>
+    <div class="img"></div>
+  </div>
     <div id="container">
-      <h3> 예약 취소 완료 </h3>
-      <hr><br><br>
-      <article id="comleteImg">
-        <section id="banner">
-          <img src="./imgs/thankyou.png" width="45%" alt="completed img">
-        </section>
-
-      </article><br><br>
-      <div id="inquiryButton">
-        <button type="submit" onClick="location.href='restaurant.html'">HOME</button>
-      </div><br><br>
+      <br><br><br><br>
+      <h3>레스토랑 예약 취소 완료</h3><br>
+      <p>TeamF's Restaurant를 이용해 주셔서 감사합니다.<br>다음에 뵙기를 기대합니다.</p><br><br>
+      <div id="mainButtom">
+        <button type="button" onClick="location.href='restaurant.html'">메인으로 이동</button>
+      </div><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 
   </div>
