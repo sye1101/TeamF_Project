@@ -1,35 +1,26 @@
-* {
-  margin: 0px;
-  padding: 0px;
+h3{
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
 }
-
+h4{
+  text-align: center;
+}
+p{
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
 ul {
   list-style: none;
 }
-
-a {
-  text-decoration: none;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-#content {
-  margin-top: 40px;
-  padding: 10px;
-}
-
-#selectTableId{
-  font-size: 16px;
-  margin-top: 10px
-}
-
 #reserveButton button {
   border: 1px solid white;
   background-color: black;
   color: white;
   padding: 8px;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 120px;
 }
 
 #reserveButton button:hover {
@@ -37,9 +28,44 @@ h3 {
   color: black;
   background-color: white;
 }
+.img {
+  width: auto;
+  height: 70vh;
+  background-image: url("./imgs/banner3.jpg");
+}
+.lb-wrap {
+  width: auto;
+  margin: 10px auto;
+  position: relative;
+}
+.lb-wrap img {
+  width: auto;
+  vertical-align: middle;
+}
+.lb-text {
+  font-family: serif;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -50%);
+}
 
+@media(max-width:440px) {
+  .lb-wrap {
+  width: 95%;
+  }
+  #inpage{
+    width: 95%;
+  }
+}
 #inpage {
-  width: 820px;
+  width: auto;
   margin: 0px auto;
   color: black;
+  margin-left: 10%;
+  margin-right: 10%;
 }

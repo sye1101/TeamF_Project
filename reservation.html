@@ -4,10 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>예약하기</title>
+  <title>레스토랑 예약</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./restaurant.css">
   <link rel="stylesheet" href="./reservation.css">
 </head>
@@ -42,18 +44,28 @@
       <div id="top_menu">
         <a href="#" onclick="location.href='login.html'">로그인</a>
         <a href="#" onClick="location.href='signup.html'">회원가입</a>
-        <a href="#">관리자</a>
+        <a href="#" onClick="location.href='managerLogin.html'">관리자</a>
       </div>
     </header>
+    <div class="lb-wrap">
+      <div class="lb-text">
+        <h2>Reservation: Reservation&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+      </div>
+      <div class="img"></div>
+    </div>
     <div id="inpage">
+      <br><br><br><br>
+      <h3>레스토랑 예약</h3><br><br>
+      <h4>온라인 예약 서비스</h4><br>
+      <p>예약 페이지 내 온라인 예약를 통해<br>예약을 하실 수 있습니다</p><br><br><br><br><br><br><br>
       <article id="content">
         <h3>테이블 배치도</h3>
-        <hr>
+        <hr><br>
         <section id="table">
           <img src="./imgs/table.png" width="100%" alt="table img">
         </section>
 
-      </article>
+      </article><br><br>
       <div id="container">
         <h3>날짜&amp;시간&amp;인원 선택</h3>
         <hr><br>
@@ -123,10 +135,10 @@
             <label for="requirements"> 추가 요구사항 </label><br>
             <textarea name="requirements" rows="4" cols="40"></textarea>
           </li>
-        </ul><br>
+        </ul><br><br><br>
         <div id="reserveButton">
           <button type="submit" onClick="location.href='reservationConfirmed.html'">예약하기</button>
-        </div><br><br>
+        </div><br><br><br><br><br><br>
       </div>
     </div>
   </div>

@@ -1,35 +1,55 @@
-#checkButton button {
-  margin-left: 78%;
+#container {
+  width: auto;
+  margin: 0px auto;
+  color: black;
+}
+
+input {
+  width: 380px;
+  height: 50px;
+}
+
+input:focus {
+  outline: 1px solid black;
+}
+
+#wrap {
+  margin-top: 50px;
+  height: 200px;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+
+#mgBtn {
   border: 1px solid white;
   background-color: black;
   color: white;
   padding: 8px;
+  width: 380px;
+  height: 50px;
+  margin-bottom: 120px;
 }
 
-#checkButton button:hover {
+#mgBtn:hover {
   border: 1px solid black;
   color: black;
   background-color: white;
 }
 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 25px;
-}
-
-th {
-  width: 25%;
-  background-color: lightgrey;
-}
-
 .img {
   width: auto;
   height: 70vh;
-  background-image: url("./imgs/banner1.jpg");
+  background-image: url("./imgs/banner3.jpg");
 }
 
 .lb-wrap {
@@ -52,7 +72,7 @@ th {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-80%, -50%);
+  transform: translate(-82%, -50%);
 }
 
 @media(max-width:440px) {
@@ -63,27 +83,4 @@ th {
   #container {
     width: 95%;
   }
-}
-
-#container {
-  width: auto;
-  margin: 0px auto;
-  color: black;
-}
-
-table {
-  width: 65%;
-  margin: 0px auto;
-  color: black;
-}
-
-h3 {
-  font-family: 'Noto Serif KR', serif;
-  text-align: center;
-}
-
-p {
-  text-align: center;
-  font-size: 14px;
-  color: grey;
 }
