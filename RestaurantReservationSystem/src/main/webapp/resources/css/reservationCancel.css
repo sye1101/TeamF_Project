@@ -1,20 +1,17 @@
 .img {
   width: auto;
   height: 70vh;
-  background: url("../imgs/start1.jpg");
+  background: url("../imgs/start2.jpg");
 }
-
 .lb-wrap {
   width: auto;
   margin: 10px auto;
   position: relative;
 }
-
 .lb-wrap img {
   width: auto;
   vertical-align: middle;
 }
-
 .lb-text {
   font-family: serif;
   font-size: 25px;
@@ -24,37 +21,18 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-85%, -50%);
+  transform: translate(-90%, -50%);
 }
 
 /* Layout(No Edit) */
 @media(max-width:440px) {
   .lb-wrap {
+  width: 95%;
+  }
+  #container{
     width: 95%;
   }
-
-  #container {
-    width: 95%;
-  }
 }
-
-h3 {
-  font-family: 'Noto Serif KR', serif;
-  text-align: center;
-}
-
-p {
-  text-align: center;
-  font-size: 14px;
-  color: grey;
-}
-
-#container {
-  width: auto;
-  margin: 0px auto;
-  color: black;
-}
-
 #inquiryButton button {
   margin: auto;
   display: block;
@@ -68,4 +46,37 @@ p {
   border: 1px solid black;
   color: black;
   background-color: white;
+}
+
+#container{
+  width: auto;
+  margin: 0px auto;
+  color: black;
+}
+h3{
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+}
+h4{
+  text-align: center;
+}
+p{
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+.note{
+  width: 820px;
+  margin: 0px auto;
+  color: black;
+  margin-top: 50px;
+}
+dt{
+  margin-left: 12%;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+dd{
+  margin-left: 18%;
+  line-height: 25px;
 }

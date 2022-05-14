@@ -30,17 +30,17 @@ p {
   color: grey;
 }
 
-#idButton button {
+#btn2 {
   border: 1px solid white;
   background-color: black;
   color: white;
   padding: 8px;
-  width: 190px;
+  width: 380px;
   height: 50px;
   margin-bottom: 120px;
 }
 
-#idButton button:hover {
+#btn2:hover {
   border: 1px solid black;
   color: black;
   background-color: white;
@@ -49,7 +49,7 @@ p {
 .img {
   width: auto;
   height: 70vh;
-  background: url("../imgs/banner1.jpg");
+  background: url("../imgs/banner3.jpg");
 }
 
 .lb-wrap {
@@ -72,7 +72,7 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-90%, -50%);
+  transform: translate(-100%, -50%);
 }
 
 @media(max-width:440px) {

@@ -1,8 +1,10 @@
+<%@page import="dao.userDAO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ page import = "dao.tableDAO" %>
+<%@ page import = "dto.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="#">
   <title>예약하기</title>
-  <link rel="stylesheet" href="./resources/css/retaurant.css">
   <link rel="stylesheet" href="./resources/css/reservation.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap/min.css">
 </head>
 
 <body>
@@ -24,13 +24,27 @@
 		writer.println("location.href='./restaurant.jsp'");
 		writer.println("</script>");
 	} 
+	
+	userDAO dao = new userDAO();
+	User user = dao.getUser((String)session.getAttribute("sessionId"));
 	%>
 <form method="get" action="./reservationConfirm.jsp">
-  <div id="page">
   <%@ include file = "./header.jsp" %>
+  <div id="page">
+    <div class="lb-wrap">
+      <div class="lb-text">
+        <h2>Reservation: Reservation&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+      </div>
+      <div class="img"></div>
+    </div>
+    <div id="inpage">
+      <br><br><br><br>
+      <h3>레스토랑 예약</h3><br><br>
+      <h4>온라인 예약 서비스</h4><br>
+      <p>예약 페이지 내 온라인 예약를 통해<br>예약을 하실 수 있습니다</p><br><br><br><br><br><br><br>
     <article id="content">
       <h3>테이블 배치도</h3>
-      <hr>
+      <hr><br><br>
       <section id="table_six">
         <img src="./resources/imgs/table_six.png" width="10%" alt="table img">
         <img src="./resources/imgs/table_six.png" width="10%" alt="table img">
@@ -43,8 +57,7 @@
       	<img src="./resources/imgs/table_two.png" width="7%" alt="table img">
         <img src="./resources/imgs/table_two.png" width="7%" alt="table img">
       </section>
-
-    </article>
+    </article><br><br>
     <div id="container">
       <h3>날짜&amp;시간&amp;인원 선택</h3>
       <hr><br>
@@ -105,11 +118,11 @@
       <ul>
         <li>
           <label for="name"> 예약자 </label><br>
-          <input type="text" id="name" name="name">
+          <input type="text" id="name" value = "<%= user.getName() %>" name="name"  readonly>
         </li>
         <li><br>
           <label for="phonenumber"> 연락처 </label><br>
-          <input type="text" id="phonenumber" name="phonenumber">
+          <input type="text" id="phonenumber" value = "<%= user.getPhone_number() %>" name="phonenumber" readonly>
         </li>
         <li><br>
           <label for="requirements"> 추가 요구 사항 </label><br>
@@ -118,9 +131,10 @@
       </ul><br>
       <div id="reserveButton">
         <button type="submit">예약하기</button>
-      </div><br><br>
-   	 </div>
-  	</div>
+     </div><br><br><br><br><br><br>
+      </div>
+    </div>
+  </div>
   </form>
 </body>
 

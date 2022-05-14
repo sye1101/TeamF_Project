@@ -22,6 +22,13 @@
 		
 		Statement stmt = null;
 		
+		if ((id.trim().equals("") || id == null) || (pw.trim().equals("") || pw == null)) {
+			writer.println("<script>");
+			writer.println("alert('아이디나 비밀번호가 입력되지 않았습니다.')");
+			writer.println("location.href='./login.jsp'");
+			writer.println("</script>");
+		}
+		
 		userDAO dao = new userDAO();
 		int result = dao.login(id, pw); // 1이면 로그인 성공, 0이면 비밀번호 틀림, -1이면 아이디 존재하지 않음
 

@@ -1,20 +1,17 @@
 .img {
   width: auto;
   height: 70vh;
-  background: url("../imgs/start1.jpg");
+  background: url("../imgs/banner2.jpg");
 }
-
 .lb-wrap {
   width: auto;
   margin: 10px auto;
   position: relative;
 }
-
 .lb-wrap img {
   width: auto;
   vertical-align: middle;
 }
-
 .lb-text {
   font-family: serif;
   font-size: 25px;
@@ -24,29 +21,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-85%, -50%);
+  transform: translate(-80%, -50%);
 }
 
 /* Layout(No Edit) */
 @media(max-width:440px) {
   .lb-wrap {
+  width: 95%;
+  }
+  #container{
     width: 95%;
   }
-
-  #container {
-    width: 95%;
-  }
-}
-
-h3 {
-  font-family: 'Noto Serif KR', serif;
-  text-align: center;
-}
-
-p {
-  text-align: center;
-  font-size: 14px;
-  color: grey;
 }
 
 #container {
@@ -54,8 +39,34 @@ p {
   margin: 0px auto;
   color: black;
 }
+h3{
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+}
+p{
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
 
-#inquiryButton button {
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 30px;
+  text-align: center;
+}
+
+td {
+  border-bottom: 1px solid black;
+}
+.table{
+  width: 80%;
+  margin: 0px auto;
+  color: black;
+}
+.table button {
   margin: auto;
   display: block;
   border: 1px solid white;
@@ -64,7 +75,7 @@ p {
   padding: 8px;
 }
 
-#inquiryButton button:hover {
+.table button:hover {
   border: 1px solid black;
   color: black;
   background-color: white;

@@ -1,4 +1,4 @@
-#checkButton {
+#checkButton button {
   border: 1px solid white;
   background-color: black;
   color: white;
@@ -11,7 +11,12 @@
   background-color: white;
 }
 
-#page {
+#container {
   width: 820px;
   margin: 0px auto;
+  color: black;
+}
+h3{
+    margin-top: 40px;
+    font-size: 20px;
 }

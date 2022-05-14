@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import dto.User;
 
 public class userDAO {
 
@@ -20,6 +23,38 @@ public class userDAO {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public User getUser(String id) {
+		Statement stmt = null;
+		ResultSet rs = null;
+		User user = new User();
+		
+		try {
+			String query = "select * from user where id = '" + id + "'";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			if (rs.next()) {
+				user.setId(rs.getString("id"));
+				user.setPassword(rs.getString("password"));
+				user.setName(rs.getString("name"));
+				user.setPhone_number(rs.getString("phone_number"));
+			}
+			return user;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return null;
 	}
 	
 	public int login(String Id, String Password) { // 로그인

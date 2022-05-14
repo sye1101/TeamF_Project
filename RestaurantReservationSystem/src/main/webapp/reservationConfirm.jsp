@@ -11,8 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>레스토랑 예약 정보 확인</title>
 
-  <link rel="stylesheet" href="./retaurant.css">
-  <link rel="stylesheet" href="./reservationConfirmed.css">
+  <link rel="stylesheet" href="./resources/css/restaurant.css">
+  <link rel="stylesheet" href="./resources/css/reservationConfirmed.css">
   <style>
     table,
     th,
@@ -71,6 +71,8 @@
 	for (int i = 0; i < table.length; i++) {
 		table_convert.add(Integer.parseInt(table[i].substring(0, 1)));
 	}
+	
+	System.out.println(Arrays.toString(table_convert.toArray()));
 	 
 	if (td.isCoverBiggerThanTable(Integer.parseInt(cover), table_convert)) {
 		 writer.println("<script>");
@@ -80,8 +82,11 @@
 	}
 	
 	ArrayList<Integer> alreadyBookedTables = new ArrayList<Integer>();
+	String _date = date + " " + reservationTime;
 
-	alreadyBookedTables = rd.isTableAlreadyBooked(table_convert);
+	System.out.println(_date);
+	
+	alreadyBookedTables = rd.getAlreadyBookedTable(table_convert, _date);
 	
 	for (int i = 0; i < alreadyBookedTables.size(); i++) {
 		if (alreadyBookedTables.contains(table_convert.get(i))) {
