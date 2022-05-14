@@ -57,51 +57,22 @@
       <br><br><br><br>
       <h3>레스토랑 전체 예약 조회</h3><br>
       <p>TeamF's Restaurant를 이용해 주셔서 감사합니다.<br>전체 예약 내역을 확인하실 수 있습니다.</p><br><br>
-      <script>
-        const rowCnt = 5;
-        const columnCnt = 4;
-
-        document.write('<div class="table">')
-        document.write('<table>');
-        for (let i = 0; i < rowCnt; i++) {
-          document.write('<tr>');
-          for (let j = 0; j < columnCnt; j++) {
-            document.write('<td>');
-            if (i == 0) {
-              if (j == 0) {
-                document.write("예약 번호");
-              } else if (j == 1) {
-                document.write("예약 날짜");
-              } else if (j == 2) {
-                document.write("상세 보기");
-              } else {
-                document.write("예약 취소");
-              }
-            } else {
-              if (j == 2) {
-                document.write('<button type="button" onclick="inquiry()">');
-                document.write("상세보기");
-                document.write('</button>');
-              }
-              if (j == 3) {
-                document.write('<button type="button" onclick="cancel()">');
-                document.write("예약취소");
-                document.write('</button>');
-              }
-            }
-            document.write('</td>');
-          }
-          document.write('</tr>')
-        }
-        document.write('</table>');
-
-        function inquiry() {
-          location.href = "inquiry.html";
-        }
-        function cancel() {
-          location.href = "reservationCancel.html";
-        }
-      </script>
+      <div class="table">
+        <table>
+          <tr>
+            <td>예약 번호</td>
+            <td>예약 날짜</td>
+            <td>상세 보기</td>
+            <td>예약 취소</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><button type="button" onclick="location.href = 'inquiry.html'">상세보기</button></td>
+            <td><button type="button" onclick="location.href = 'reservationCancel.html'">예약취소</button></td>
+          </tr>
+        </table>
+      </div>
     </div><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 </body>
