@@ -205,7 +205,7 @@ public class reservationDAO {
 				pstmt.setInt(1, table.get(i));
 				pstmt.setString(2, date);
 				rs = pstmt.executeQuery();
-				if (rs.next()) {
+				while (rs.next()) {
 					alreadyBookedTable.add(rs.getInt(1));
 				}
 				System.out.println("이미 예약된 테이블 : " + Arrays.toString(alreadyBookedTable.toArray()));
