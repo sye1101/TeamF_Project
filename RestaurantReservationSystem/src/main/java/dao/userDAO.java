@@ -17,7 +17,7 @@ public class userDAO {
 		try {
 			String url = "jdbc:mysql://localhost:3306/RestaurantDB?autoReconnect=true";
 			String user = "root";
-			String password = "skfvkfl2004!";
+			String password = "비밀번호";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException e) {
