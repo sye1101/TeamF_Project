@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>teamF's restaurant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./restaurant.css">
+</head>
+
+<body>
+  <div id="page">
+    <header>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Story</a>
+          <a href="#">Menu</a>
+          <a href="#" onclick="location.href='reservation.html'">Reservation</a>
+          <a href="#" onclick="location.href='nonLonginInquiry.html'">Inquiry</a>
+        </div>
+      </div>
+      <span id="menuBar" onclick="openNav()">&#9776;</span>
+      <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+      </script>
+      <div id="logo">
+        <a href="#" onclick="location.href='restaurant.html'">
+          <h1>teamF's restaurant</h1>
+        </a>
+      </div>
+      <div id="top_menu">
+        <a href="#" onclick="location.href='login.html'">로그인</a>
+        <a href="#" onClick="location.href='signup.html'">회원가입</a>
+        <a href="#" onClick="location.href='managerLogin.html'">관리자</a>
+      </div>
+    </header>
+    <div class="container">
+      <div class="sections">
+        <div class="section active" data-bgcolor="#364652">
+          <div class="section--image"><img src="./imgs/banner1.jpg" alt="banner1" /></div>
+        </div>
+        <div class="section" data-bgcolor="#C1A5A9">
+          <div class="section--image"><img src="./imgs/banner2.jpg" alt="banner2" /></div>
+        </div>
+        <div class="section" data-bgcolor="#4ECDC4">
+          <div class="section--image"><img src="./imgs/banner3.jpg" alt="banner3" /></div>
+        </div>
+        <div class="section" data-bgcolor="#D4CBE5">
+          <div class="section--image"><img src="./imgs/start1.jpg" alt="banner4" /></div>
+        </div>
+        <div class="section" data-bgcolor="#EDD4B2">
+          <div class="section--image"><img src="./imgs/start2.jpg" alt="banner5" /></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Get all of the images that are marked up to fade in
+      const images = document.querySelectorAll('.js-lazyload-image');
+
+      const sections = document.querySelectorAll('.section');
+
+      let config = {
+        rootMargin: '0px',
+        threshold: 0
+      };
+
+      let observer = new IntersectionObserver((entries) => {
+        console.log(entries);
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            intersectionHandler(entry);
+          }
+
+        });
+      }, config);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      function intersectionHandler(entry) {
+        const current = document.querySelector('.section.active');
+        const next = entry.target;
+        const header = next.querySelector(".section--header");
+
+        if (current) {
+          current.classList.remove('active');
+        }
+        if (next) {
+          next.classList.add('active');
+          document.body.style.setProperty("--color-bg", next.dataset.bgcolor);
+        }
+      }
+
+      images.forEach(image => {
+        observer.observe(image);
+      });
+
+      function preloadImage(img) {
+        const src = img.getAttribute('data-src');
+        if (!src) {
+          return;
+        }
+        img.src = src;
+      }
+
+
+
+      // function onIntersection(entries) {
+      //   // Loop through the entries
+      //   for (var i = 0, len = entries.length; i < len; i++) {
+      //     // Are we in viewport?
+      //     if (entries[i].intersectionRatio > 0) {
+      //       console.log('in viewport');
+
+      //       // Stop watching and load the image
+      //       observer.unobserve(entries[i].target);
+      //       entries[i].target.classList.add('in-viewport');
+      //     }
+      //   }
+      // }
+    </script>
+  </div>
+</body>
+
+</html>

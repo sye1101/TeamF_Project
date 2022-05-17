@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>레스토랑 예약 전체 조회</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./restaurant.css">
+  <link rel="stylesheet" href="./AllInquiry.css">
+</head>
+
+<body>
+  <div id="page">
+    <header>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Story</a>
+          <a href="#">Menu</a>
+          <a href="#" onclick="location.href='reservation.html'">Reservation</a>
+          <a href="#" onclick="location.href='nonLonginInquiry.html'">Inquiry</a>
+        </div>
+      </div>
+      <span id="menuBar" onclick="openNav()">&#9776;</span>
+      <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+      </script>
+      <div id="logo">
+        <a href="#" onclick="location.href='restaurant.html'">
+          <h1>teamF's restaurant</h1>
+        </a>
+      </div>
+      <div id="top_menu">
+        <a href="#" onclick="location.href='login.html'">로그인</a>
+        <a href="#" onClick="location.href='signup.html'">회원가입</a>
+        <a href="#" onClick="location.href='managerLogin.html'">관리자</a>
+      </div>
+    </header>
+    <div class="lb-wrap">
+      <div class="lb-text">
+        <h2>Reservation inquiry: All reservations</h2>
+      </div>
+      <div class="img"></div>
+    </div>
+    <div id="container">
+      <br><br><br><br>
+      <h3>레스토랑 전체 예약 조회</h3><br>
+      <p>TeamF's Restaurant를 이용해 주셔서 감사합니다.<br>전체 예약 내역을 확인하실 수 있습니다.</p><br><br>
+      <div class="table">
+        <table>
+          <tr>
+            <td>예약 번호</td>
+            <td>예약 날짜</td>
+            <td>상세 보기</td>
+            <td>예약 취소</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><button type="button" onclick="location.href = 'inquiry.html'">상세보기</button></td>
+            <td><button type="button" onclick="location.href = 'reservationCancel.html'">예약취소</button></td>
+          </tr>
+        </table>
+      </div>
+    </div><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+</body>
+
+</html>

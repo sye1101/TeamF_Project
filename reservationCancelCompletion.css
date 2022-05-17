@@ -1,0 +1,66 @@
+.img {
+  width: auto;
+  height: 70vh;
+  background-image: url("./imgs/start1.jpg");
+}
+.lb-wrap {
+  width: auto;
+  margin: 10px auto;
+  position: relative;
+}
+.lb-wrap img {
+  width: auto;
+  vertical-align: middle;
+}
+.lb-text {
+  font-family: serif;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-82%, -50%);
+}
+
+/* Layout(No Edit) */
+@media(max-width:440px) {
+  .lb-wrap {
+  width: 95%;
+  }
+  #container{
+    width: 95%;
+  }
+}
+
+h3{
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+}
+p{
+  text-align: center;
+  font-size: 14px;
+  color: grey;
+}
+
+#container {
+  width: auto;
+  margin: 0px auto;
+  color: black;
+}
+
+#mainButtom button {
+  margin: auto;
+  display: block;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 8px;
+}
+
+#mainButtom button:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}

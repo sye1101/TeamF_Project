@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>레스토랑 로그인</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./restaurant.css">
+  <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+  <div id="page">
+    <header>
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+          <a href="#">Story</a>
+          <a href="#">Menu</a>
+          <a href="#" onclick="location.href='reservation.html'">Reservation</a>
+          <a href="#" onclick="location.href='nonLonginInquiry.html'">Inquiry</a>
+        </div>
+      </div>
+      <span id="menuBar" onclick="openNav()">&#9776;</span>
+      <script>
+        function openNav() {
+          document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+          document.getElementById("myNav").style.width = "0%";
+        }
+      </script>
+      <div id="logo">
+        <a href="#" onclick="location.href='restaurant.html'">
+          <h1>teamF's restaurant</h1>
+        </a>
+      </div>
+      <div id="top_menu">
+        <a href="#" onclick="location.href='login.html'">로그인</a>
+        <a href="#" onClick="location.href='signup.html'">회원가입</a>
+        <a href="#" onClick="location.href='managerLogin.html'">관리자</a>
+      </div>
+    </header>
+    <div class="lb-wrap">
+      <div class="lb-text">
+        <h2>teamF's Restaurant: Login</h2>
+      </div>
+      <div class="img"></div>
+    </div>
+    <div id="container">
+      <br><br><br><br>
+      <h3>레스토랑 로그인</h3><br>
+      <p>예약 로그인 페이지 내 로그인을 통해<br>다양한 혜택을 받으실 수 있습니다</p>
+      <article id="main">
+        <div id="wrap">
+          <input name="id_login" type="text" placeholder=" 아이디를 입력하세요"><br><br><br>
+          <input name="password_login" type="text" placeholder=" 비밀번호를 입력하세요"><br><br><br>
+          <div id = idButton>
+            <button type="submit" id="btn" value="로그인" onClick="location.href='restaurant.html'">로그인</button>
+            <button type="button" id="btn" value="회원가입" onClick="location.href='signup.html'">회원가입</button>
+          </div>
+        </div>
+      </article><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
+</body>
+
+</html>
