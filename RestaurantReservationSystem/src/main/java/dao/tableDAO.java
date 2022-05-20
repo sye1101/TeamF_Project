@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class tableDAO {
 	
 	private Connection conn = null;
-
 
 	public tableDAO() throws SQLException { // 객체 생성 시 데이터베이스에 연결
 		try {

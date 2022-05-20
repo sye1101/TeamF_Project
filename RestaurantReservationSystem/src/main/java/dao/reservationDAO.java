@@ -83,6 +83,7 @@ public class reservationDAO {
 			
 			dateAndTime = res.getDate().split("\\s"); // 공백 기준으로 날짜랑 시간 분리
 			
+			// 예약번호 이름 연락처 인원 날짜 시간 테이블 추가 요구 사항
 			reservationData.add(Integer.toString(res.getId()));
 			reservationData.add(res.getName());
 			reservationData.add(res.getPhone_number());
@@ -91,8 +92,6 @@ public class reservationDAO {
 			reservationData.add(dateAndTime[1] + " " + dateAndTime[2] + " " + dateAndTime[3]);
 			reservationData.add(tables);
 			reservationData.add(res.getPersonal_requirement());
-			
-			System.out.println(reservationData.toArray().toString());
 			
 			return reservationData;
 			
@@ -205,7 +204,7 @@ public class reservationDAO {
 				pstmt.setInt(1, table.get(i));
 				pstmt.setString(2, date);
 				rs = pstmt.executeQuery();
-				if (rs.next()) {
+				while (rs.next()) {
 					alreadyBookedTable.add(rs.getInt(1));
 				}
 				System.out.println("이미 예약된 테이블 : " + Arrays.toString(alreadyBookedTable.toArray()));

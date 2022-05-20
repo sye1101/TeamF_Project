@@ -1,9 +1,12 @@
-<%@page import="dao.userDAO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@page import="java.io.PrintWriter"%>
+<%@ page import="java.io.PrintWriter"%>
+<%@ page import="java.util.*" %>
+<%@ include file = "./header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ page import = "dao.tableDAO" %>
+<%@ page import = "dao.reservationDAO" %>
+<%@ page import="dao.userDAO"%>
 <%@ page import = "dto.User" %>
 <!DOCTYPE html>
 <html>
@@ -11,46 +14,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="#">
-  <title>예약하기</title>
+  <title>관리자 페이지</title>
   <link rel="stylesheet" href="./resources/css/reservation.css">
+     <link rel="stylesheet" href="./resources/css/managerpage.css">
 </head>
 
 <body>
   <%
 	PrintWriter writer = response.getWriter();
-	if (session.getAttribute("sessionId") == null) {
+
+	if (!(session.getAttribute("sessionId") != null && ((String)session.getAttribute("sessionId")).equals("teamF_manager"))) {
 		writer.println("<script>");
-		writer.println("alert('회원만 레스토랑 예약이 가능합니다. 예약하시려면 로그인하세요.')");
+		writer.println("alert('관리자만 접근 가능한 페이지입니다.')");
 		writer.println("location.href='./restaurant.jsp'");
 		writer.println("</script>");
-	} 
-	
-	userDAO dao = new userDAO();
-	User user = new User();
-	
-	if ((session.getAttribute("sessionId") != null && ((String)session.getAttribute("sessionId")).equals("teamF_manager"))) {
-		user.setId((String)session.getAttribute("sessionId"));
-		user.setName("관리자");
-		user.setPassword("");
-		user.setPhone_number("010-8282-8282");
-	} else {
-		user = dao.getUser((String)session.getAttribute("sessionId"));
 	}
+	
+	String reservationId = request.getParameter("reservationId");
+	reservationDAO dao1 = new reservationDAO();
+	
+	// 예약번호 이름 연락처 인원 날짜 시간 테이블 추가 요구 사항
+	ArrayList<String> reservationData = dao1.getOneReservation(Integer.parseInt(reservationId));
+	
+	System.out.println(Arrays.toString(reservationData.toArray()));
+	
+	// 최대 예약 인원은 10명이므로 테이블은 최대 4개까지 예약 가능
+	String[] tables = new String[4];
+	tables = reservationData.get(6).split("\\s");
+	System.out.println(Arrays.toString(tables));
 	%>
-<form method="get" action="./reservationConfirm.jsp">
-  <%@ include file = "./header.jsp" %>
+<form method="post" action="./reservationModifyProcess.jsp">
   <div id="page">
     <div class="lb-wrap">
-      <div class="lb-text">
-        <h2>Reservation: Reservation&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-      </div>
       <div class="img"></div>
     </div>
     <div id="inpage">
       <br><br><br><br>
-      <h3>레스토랑 예약</h3><br><br>
-      <h4>온라인 예약 서비스</h4><br>
-      <p>예약 페이지 내 온라인 예약를 통해<br>예약을 하실 수 있습니다</p><br><br><br><br><br><br><br>
+      <h3>예약 정보 수정</h3><br><br>
     <article id="content">
       <h3>테이블 배치도</h3>
       <hr><br><br>
@@ -79,25 +79,35 @@
                 var coverOption = document.createElement('option');
                 var cover = document.createTextNode(i + '명');
                 coverOption.appendChild(cover);
-                document.getElementById("cover").appendChild(coverOption);
+                document.getElementById("cover").appendChild(coverOption); 
               }
+              var covers = document.getElementById("cover")
+              for (var i, j = 0; j <= covers.options[j]; j++) {
+            	  if (i.value == <%= reservationData.get(3) + "명" %>) {
+                    	covers.selectedIndex = j
+                    }
+                }
             </script>
           </select>
         </li><br>
         <li>
           <label for="reservationDate"> 예약날짜 </label><br>
           <input type="date" id="dt" name="date">
-          <script>
+          <script> 
+            document.getElementById('dt').value = <%= reservationData.get(4) %>
             document.getElementById('dt').min = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
           </script>
         </li><br>
-      <li id="reservationTimeId">
+      <li id="reservationTimeId"> 
           <label for="reservationTime"> 예약시간 </label><br>
           <select id="reservationTime" name = "reservationTime">
             <script>
               for (var i = 10; i <= 23; i++) {
                 var reservationTimeOption = document.createElement('option');
                 var time = document.createTextNode(i + ' : 00');
+                if (reservationTimeOption.value == <%= reservationData.get(5) %>) {
+                	reservationTimeOption.selected = true;
+                }
                 reservationTimeOption.appendChild(time);
                 document.getElementById("reservationTime").appendChild(reservationTimeOption);
               }
@@ -108,12 +118,19 @@
          <label for="selectTable"> 테이블 선택 </label><br>
           <ul>
             <li id="selectTableId">
-          <script>
+          <script> // 예약번호 이름 연락처 인원 날짜 시간 테이블 추가 요구 사항
             for (var i = 1; i <= 6; i++) {
               var selectTableCheckbox = document.createElement("INPUT");
               selectTableCheckbox.setAttribute("type", "checkbox");
               selectTableCheckbox.setAttribute("value", i + "번");
               selectTableCheckbox.name = "table_num";
+              <% for (int i = 0; i < tables.length; i++) { %>
+              	if (selectTableCheckbox == <%= tables[i] %>) {
+            	  selectTableCheckbox.checked = true;
+                  }
+              	<%
+                }
+              %>
               document.getElementById("selectTableId").appendChild(selectTableCheckbox);
               document.write(i + '번&nbsp;&nbsp;&nbsp;&nbsp;')
             }
@@ -127,19 +144,19 @@
       <ul>
         <li>
           <label for="name"> 예약자 </label><br>
-          <input type="text" id="name" value = "<%= user.getName() %>" name="name"  readonly>
+          <input type="text" id="name" value = "<%= reservationData.get(1) %>" name="name"  readonly>
         </li>
         <li><br>
           <label for="phonenumber"> 연락처 </label><br>
-          <input type="text" id="phonenumber" value = "<%= user.getPhone_number() %>" name="phonenumber" readonly>
+          <input type="text" id="phonenumber" value = "<%= reservationData.get(2) %>" name="phonenumber" readonly>
         </li>
         <li><br>
           <label for="requirements"> 추가 요구 사항 </label><br>
-          <textarea name="requirements" rows="4" cols="40"></textarea>
+          <textarea name="requirements" rows="4" cols="40"><%= reservationData.get(7) %></textarea>
         </li>
       </ul><br>
       <div id="reserveButton">
-        <button type="submit">예약하기</button>
+        <button type="submit">수정하기</button>
      </div><br><br><br><br><br><br>
       </div>
     </div>

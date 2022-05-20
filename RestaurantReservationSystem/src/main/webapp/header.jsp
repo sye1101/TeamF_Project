@@ -49,11 +49,23 @@
            <c:when test="${empty sessionId}">
         <a href="./login.jsp">로그인</a>
         <a href="./signup.jsp">회원가입</a>
-        <a href="#">관리자</a>
+        <a href="./managerLogin.jsp">관리자</a>
            </c:when>
         <c:otherwise>
-          <p> <%= sessionId %>님 
-         <a href = "./logout.jsp">  로그아웃</a>
+           <% 
+        	if (session.getAttribute("sessionId") != null && ((String)session.getAttribute("sessionId")).equals("teamF_manager")) {
+    		 %>
+    		<p> <%= sessionId %>님 
+    	    <a href="./managerPage.jsp">관리자</a>
+         	<a href = "./logout.jsp">  로그아웃</a>
+         	<%
+        	  } else {
+         	%>
+         	 <p> <%= sessionId %>님 
+         	 <a href = "./logout.jsp">  로그아웃</a>
+         	 <%
+        	  }
+         	 %>
         </c:otherwise>
        </c:choose>
       </div>

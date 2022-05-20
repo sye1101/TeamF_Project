@@ -119,4 +119,11 @@ public class userDAO {
 
 		return -1; // db 오류
 	}
+	
+	public boolean isExistNullField(String id, String pw) {
+		if ((id.trim().equals("") || id == null) || (pw.trim().equals("") || pw == null)) {
+			return true;
+		} else return false;
+	}
+
 }

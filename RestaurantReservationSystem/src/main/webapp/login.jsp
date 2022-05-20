@@ -7,10 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-cache"/>
-  <meta http-equiv="Expires" content="0"/>
-  <meta http-equiv="Pragma" content="no-cache"/>
-   <link rel="stylesheet" href="./resources/css/login.css">
+   <link rel="stylesheet" href="./resources/css/_login.css">
   <title>로그인</title>
 </head>
 <body>
@@ -33,8 +30,8 @@
       <article id="main">
         <div id="wrap">
           <form class="login_form" action = "./loginProcess.jsp">
-          <input name="id_login" type="text" placeholder=" 아이디를 입력하세요"><br>
-          <input name="password_login" type="password" placeholder=" 비밀번호를 입력하세요"><br>
+          <input name="id_login" type="text" placeholder=" 아이디를 입력하세요"><br><br>
+          <input name="password_login" type="password" placeholder=" 비밀번호를 입력하세요"><br><br>
           <input type="submit" id="btn" value = "로그인">
           <input type="button" id="btn" value = "회원가입" onClick = "location.href='./signup.jsp'">
           </form>

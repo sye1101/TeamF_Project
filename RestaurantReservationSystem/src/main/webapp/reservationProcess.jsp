@@ -45,9 +45,7 @@
 	
 	rd.reservation(name, phoneNumber, date, Integer.parseInt(cover), requirements);
 	int reservationId = rd.getReservationId(name, phoneNumber, date);
-	System.out.println("reservationId : " + reservationId);
 	for (int i = 0; i < table_convert.size(); i++) {
-		// public void reservation_table(int reservation_id, int table_id, String date)
 		rd.reservation_table(table_convert.get(i), reservationId,  date);
 	}
 	
