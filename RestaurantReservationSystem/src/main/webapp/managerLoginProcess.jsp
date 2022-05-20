@@ -25,7 +25,7 @@
 				writer.println("history.back();");
 				writer.println("</script>");
 		} else {
-			boolean result = (managerId.equals("teamF_manager") && managerPw.equals("admin8001")) ? true : false;
+			boolean result = (managerId.equals("관리자 아이디") && managerPw.equals("관리자 비밀번호")) ? true : false;
 			if (result) {
 				session.setAttribute("sessionId", managerId);
 				writer.println("<script>");
