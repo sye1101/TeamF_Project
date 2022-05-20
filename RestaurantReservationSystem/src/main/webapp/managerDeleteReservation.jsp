@@ -13,7 +13,7 @@
 	
 	PrintWriter writer = response.getWriter();
 
-	if (!(session.getAttribute("sessionId") != null && ((String)session.getAttribute("sessionId")).equals("teamF_manager"))) {
+	if (!(session.getAttribute("sessionId") != null && ((String)session.getAttribute("sessionId")).equals("관리자 아이디"))) {
 		writer.println("<script>");
 		writer.println("alert('관리자만 접근 가능한 페이지입니다.')");
 		writer.println("location.href='./restaurant.jsp'");
