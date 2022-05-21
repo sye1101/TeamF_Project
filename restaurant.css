@@ -8,6 +8,14 @@ a {
   color: black;
 }
 
+h2 {
+  color: white;
+}
+
+h3 {
+  font-family: serif;
+}
+
 #menuBar {
   position: absolute;
   font-size: 35px;
@@ -84,90 +92,187 @@ header {
 }
 
 #top_menu {
-  word-spacing:15px;
+  word-spacing: 15px;
   position: absolute;
   top: 15px;
   right: 20px;
   font-size: 13px;
 }
 
-:root {
-  --color-text: #fff;
-  --color-bg: #ddd;
-  --font-text: "Gwendolyn", cursive;
-  --fontsize-text: 8vw;
+.section {}
+
+.section input[id*="slide"] {
+  display: none;
 }
 
-body {
-  min-height: 100vh;
-  color: #000;
-  color: var(--color-text);
-  background-color: #fff;
-  background: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background 1s;
+.section .slide-wrap {
+  margin: 0 auto;
 }
 
-.sections {
-  position: relative;
-  display: block;
-  padding: 0 6vmax;
+.section .slidelist {
+  white-space: nowrap;
+  font-size: 0;
+  overflow: hidden;
+}
+img {
+  width: auto;
+  height: 670px;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+.section .slidelist>li {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  transition: all .5s;
 }
 
-.section {
-  position: relative;
-  min-height: 100vh;
-}
-
-.section--image {
-  display: block;
-  position: relative;
-  max-width: 100%;
-  margin: 10vh 0 30vh auto;
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.active .section--image {
-  opacity: 1;
-}
-
-.section--image img {
+.section .slidelist>li>a {
   display: block;
   position: relative;
-  max-width: 90%;
-  max-height: 100vh;
-  margin: 0 0 0 auto;
 }
 
-.section--header {
-  font-size: calc(var(--fontsize-text));
-  font-family: var(--font-text);
+.section .slidelist>li>a img {
+  width: 100%;
+}
+
+.section .slidelist label {
   position: absolute;
-  bottom: 5vmax;
-  left: 0;
-  padding-left: 5vmax;
-  z-index: 1000;
-  line-height: 1;
-  font-weight: 300;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 50px;
+  cursor: pointer;
+}
+
+.section .slidelist .left {
+  left: 10px;
+  background: url('./imgs/left.png') center center / 100% no-repeat;
+}
+
+.section .slidelist .right {
+  right: 10px;
+  background: url('./imgs/right.png') center center / 100% no-repeat;
+}
+
+.section .slidelist .textbox {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.section .slidelist .textbox h3 {
+  font-size: 50px;
+  color: #fff;
   opacity: 0;
-  animation-duration: 1s;
-  animation-fill-mode: both;
+  transform: translateY(30px);
+  transition: all .5s;
 }
 
-.active .section--header {
-  animation-name: fadeInUp;
+.section .slidelist .textbox p {
+  font-size: 24px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all .5s;
 }
 
-@keyframes fadeInUp {
-  0% {
-    transform: translate3d(0, 55%, 0);
-    opacity: 0;
-  }
+.section input[id="slide01"]:checked~.slide-wrap .slidelist>li {
+  transform: translateX(0%);
+}
 
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+.section input[id="slide02"]:checked~.slide-wrap .slidelist>li {
+  transform: translateX(-100%);
+}
+
+.section input[id="slide03"]:checked~.slide-wrap .slidelist>li {
+  transform: translateX(-200%);
+}
+
+.section input[id="slide04"]:checked~.slide-wrap .slidelist>li {
+  transform: translateX(-300%);
+}
+
+.section input[id="slide01"]:checked~.slide-wrap li:nth-child(1) .textbox h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .2s;
+}
+
+.section input[id="slide01"]:checked~.slide-wrap li:nth-child(1) .textbox p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .4s;
+}
+
+.section input[id="slide02"]:checked~.slide-wrap li:nth-child(2) .textbox h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .2s;
+}
+
+.section input[id="slide02"]:checked~.slide-wrap li:nth-child(2) .textbox p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .4s;
+}
+
+.section input[id="slide03"]:checked~.slide-wrap li:nth-child(3) .textbox h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .2s;
+}
+
+.section input[id="slide03"]:checked~.slide-wrap li:nth-child(3) .textbox p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .4s;
+}
+
+.section input[id="slide04"]:checked~.slide-wrap li:nth-child(4) .textbox h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .2s;
+}
+
+.section input[id="slide04"]:checked~.slide-wrap li:nth-child(4) .textbox p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .4s;
+}
+button {
+  margin: 20px auto;
+  display: block;
+  border: 1px solid white;
+  color: white;
+  padding: 8px;
+  background-color:transparent;
+  color: white;
+}
+
+footer {
+  background-color: #222222;
+}
+
+.foo {
+  text-align: center;
+}
+
+#name {
+  font-family: 'Gwendolyn', cursive;
+  font-size: 40px;
+}
+
+.foo span {
+  font-size: 13px;
+  color: #E1E1E1;
+}
+
+.foo p {
+  font-size: 5px;
+  color: #E1E1E1;
 }

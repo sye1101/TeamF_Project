@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./restaurant.css">
 </head>
 
@@ -18,8 +19,8 @@
       <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-          <a href="#">Story</a>
-          <a href="#">Menu</a>
+          <a href="#" onclick="location.href='story.html'">Story</a>
+          <a href="#" onclick="location.href='menu.html'">Menu</a>
           <a href="#" onclick="location.href='reservation.html'">Reservation</a>
           <a href="#" onclick="location.href='nonLonginInquiry.html'">Inquiry</a>
         </div>
@@ -45,93 +46,72 @@
         <a href="#" onClick="location.href='managerLogin.html'">관리자</a>
       </div>
     </header>
-    <div class="container">
-      <div class="sections">
-        <div class="section active" data-bgcolor="#364652">
-          <div class="section--image"><img src="./imgs/banner1.jpg" alt="banner1" /></div>
-        </div>
-        <div class="section" data-bgcolor="#C1A5A9">
-          <div class="section--image"><img src="./imgs/banner2.jpg" alt="banner2" /></div>
-        </div>
-        <div class="section" data-bgcolor="#4ECDC4">
-          <div class="section--image"><img src="./imgs/banner3.jpg" alt="banner3" /></div>
-        </div>
-        <div class="section" data-bgcolor="#D4CBE5">
-          <div class="section--image"><img src="./imgs/start1.jpg" alt="banner4" /></div>
-        </div>
-        <div class="section" data-bgcolor="#EDD4B2">
-          <div class="section--image"><img src="./imgs/start2.jpg" alt="banner5" /></div>
-        </div>
+    <div class="section">
+      <input type="radio" name="slide" id="slide01" checked>
+      <input type="radio" name="slide" id="slide02">
+      <input type="radio" name="slide" id="slide03">
+      <input type="radio" name="slide" id="slide04">
+      <div class="slide-wrap">
+        <ul class="slidelist">
+          <li>
+            <a>
+              <label for="slide04" class="left"></label>
+              <div class="textbox">
+                <h3>Emilia-Romagna</h3>
+                <p>Emilia-Romagna의 맛을 그대로</p>
+              </div>
+              <img src="./imgs/banner1.jpg">
+              <label for="slide02" class="right"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide01" class="left"></label>
+              <div class="textbox">
+                <h3>varietàdi pietanze</h3>
+                <p>맛과 즐거움의 공간</p>
+                <button type="button" onclick="location.href = 'menu.html'">메뉴보기</button>
+              </div>
+              <img src="./imgs/banner2.jpg">
+              <label for="slide03" class="right"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide02" class="left"></label>
+              <div class="textbox">
+                <h3>prenotazióne conveniènte</h3>
+                <p>가장 빠르게 식사를 즐길 수 있는 방법</p>
+                <button type="button" onclick="location.href = 'reservation.html'">예약하기</button>
+              </div>
+              <img src="./imgs/banner3.jpg">
+              <label for="slide04" class="right"></label>
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="slide03" class="left"></label>
+              <div class="textbox">
+                <h3>conférma immediato</h3>
+                <p>가장 빠르게 예약을 확인하는 방법</p>
+                <button type="button" onclick="location.href = 'nonLonginInquiry.html'">조회하기</button>
+              </div>
+              <img src="./imgs/banner4.jpg">
+              <label for="slide01" class="right"></label>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-    <script>
-      // Get all of the images that are marked up to fade in
-      const images = document.querySelectorAll('.js-lazyload-image');
-
-      const sections = document.querySelectorAll('.section');
-
-      let config = {
-        rootMargin: '0px',
-        threshold: 0
-      };
-
-      let observer = new IntersectionObserver((entries) => {
-        console.log(entries);
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            intersectionHandler(entry);
-          }
-
-        });
-      }, config);
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-
-      function intersectionHandler(entry) {
-        const current = document.querySelector('.section.active');
-        const next = entry.target;
-        const header = next.querySelector(".section--header");
-
-        if (current) {
-          current.classList.remove('active');
-        }
-        if (next) {
-          next.classList.add('active');
-          document.body.style.setProperty("--color-bg", next.dataset.bgcolor);
-        }
-      }
-
-      images.forEach(image => {
-        observer.observe(image);
-      });
-
-      function preloadImage(img) {
-        const src = img.getAttribute('data-src');
-        if (!src) {
-          return;
-        }
-        img.src = src;
-      }
-
-
-
-      // function onIntersection(entries) {
-      //   // Loop through the entries
-      //   for (var i = 0, len = entries.length; i < len; i++) {
-      //     // Are we in viewport?
-      //     if (entries[i].intersectionRatio > 0) {
-      //       console.log('in viewport');
-
-      //       // Stop watching and load the image
-      //       observer.unobserve(entries[i].target);
-      //       entries[i].target.classList.add('in-viewport');
-      //     }
-      //   }
-      // }
-    </script>
   </div>
+  <footer>
+    <div class="foo"><br><br>
+      <span id="name">TeamF's restaurant</span><br><br>
+      <span>경기도 수원시 영통구 광교산로 154-42</span><br>
+      <span>Tel. 031) 249-9114&nbsp;&nbsp;대표이사 경기대</span><br><br>
+      <p>©2022 TeamF's restaurant Co. All rights reserved.</p><br><br>
+    </div>
+  </footer>
 </body>
 
 </html>

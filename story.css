@@ -1,35 +1,7 @@
-#checkButton button {
-  margin-left: 78%;
-  border: 1px solid white;
-  background-color: black;
-  color: white;
-  padding: 8px;
-}
-
-#checkButton button:hover {
-  border: 1px solid black;
-  color: black;
-  background-color: white;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 25px;
-}
-
-th {
-  width: 25%;
-  background-color: lightgrey;
-}
-
 .img {
   width: auto;
   height: 70vh;
-  background-image: url("./imgs/reservation.jpg");
+  background-image: url("./imgs/story.jpg");
 }
 
 .lb-wrap {
@@ -55,6 +27,7 @@ th {
   transform: translate(-80%, -50%);
 }
 
+/* Layout(No Edit) */
 @media(max-width:440px) {
   .lb-wrap {
     width: 95%;
@@ -71,15 +44,47 @@ th {
   color: black;
 }
 
-table {
-  width: 65%;
-  margin: 0px auto;
-  color: black;
+img {
+  filter: brightness(100%);
+}
+
+#story1 {
+  display: block;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+}
+
+#story2 {
+  margin-left: 25%;
+  width: 25%;
+  height: 25%;
+  margin-right: 5%;
+  float: left;
+}
+#story3 {
+  margin-left: 20%;
+  margin-right: 5%;
+  width: 30%;
+  float: left;
 }
 
 h3 {
   font-family: 'Noto Serif KR', serif;
   text-align: center;
+}
+
+h4 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 30px;
+}
+
+h5 {
+  font-family: 'Noto Serif KR', serif;
+}
+
+#clear {
+  clear: left;
 }
 
 p {
